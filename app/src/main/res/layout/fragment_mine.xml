@@ -30,15 +30,14 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/iv_head"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@mipmap/ic_launcher"
                 app:civ_border_color="@color/bg_Gray"
-                app:civ_fill_color="@color/white"
-                app:civ_border_width="2dp" />
+                app:civ_border_width="2dp"
+                app:civ_fill_color="@color/white" />
 
 
             <TextView
@@ -71,6 +70,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/ll_city"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -106,6 +106,7 @@
         android:background="@color/bg_Gray" />
 
     <LinearLayout
+        android:id="@+id/ll_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -134,8 +135,39 @@
         android:layout_marginRight="5dp"
         android:background="@color/bg_Gray" />
 
+    <LinearLayout
+        android:id="@+id/ll_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/star" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:text="@string/star"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/bg_Gray" />
+
 
     <LinearLayout
+        android:id="@+id/ll_about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

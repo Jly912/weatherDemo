@@ -31,4 +31,13 @@
     <string name="collect">收藏的城市</string>
     <string name="mySetting">我的设置</string>
     <string name="about">关于我们</string>
+    <string name="star">星座运势</string>
+
+    <string name="load_error">加载失败！</string>
+    <string name="load_succ">加载成功！</string>
+    <string name="loading">正在加载...</string>
+
+    <string name="yesterday">昨天</string>
+    <string name="today">今天</string>
+    <string name="tomorrow">明天</string>
 </resources>

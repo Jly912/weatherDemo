@@ -21,8 +21,6 @@ public class EditTextWithDel extends EditText {
 
     private Drawable drawable;
 
-//    private final static String TAG = "EditTextWithDel";
-
     public EditTextWithDel(Context context) {
         super(context);
         this.context=context;

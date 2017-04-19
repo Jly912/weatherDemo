@@ -1,13 +1,13 @@
 package com.jal.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by SEELE on 2017/4/17.
  */
 
-public class WeatherInfoBean {
-
+public class WeatherInfoBean implements Serializable{
 
     /**
      * reason : 查询成功!
@@ -52,7 +52,8 @@ public class WeatherInfoBean {
         this.error_code = error_code;
     }
 
-    public static class ResultBean {
+
+    public static class ResultBean implements Serializable {
         /**
          * data : {"realtime":{"city_code":"101210701","city_name":"温州","date":"2017-04-17","time":"16:00:00","week":1,"moon":"三月廿一","dataUptime":1492416971,"weather":{"temperature":"23","humidity":"89","info":"阵雨","img":"3"},"wind":{"direct":"东北风","power":"1级","offset":null,"windspeed":null}},"life":{"date":"2017-4-17","info":{"chuanyi":["较舒适","建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。"],"ganmao":["较易发","相对今天出现了较大幅度降温，较易发生感冒，体质较弱的朋友请注意适当防护。"],"kongtiao":["较少开启","您将感到很舒适，一般不需要开启空调。"],"xiche":["不宜","不宜洗车，未来24小时内有雨，如果在此期间洗车，雨水和路上的泥水可能会再次弄脏您的爱车。"],"yundong":["较不宜","有降水，推荐您在室内进行健身休闲运动；若坚持户外运动，须注意携带雨具并注意避雨防滑。"],"ziwaixian":["最弱","属弱紫外线辐射天气，无需特别防护。若长期在户外，建议涂擦SPF在8-12之间的防晒护肤品。"]}},"weather":[{"date":"2017-04-17","info":{"day":["3","阵雨","24","西南风","微风","05:31","出门记得带伞，行走驾驶做好防滑准备"],"night":["2","阴","18","西南风","微风","18:24","出门记得带伞，行走驾驶做好防滑准备"]},"week":"一","nongli":"三月廿一"},{"date":"2017-04-18","info":{"dawn":["2","阴","18","西南风","微风","18:24"],"day":["1","多云","29","西南风","微风","05:30"],"night":["1","多云","17","西南风","微风","18:25"]},"week":"二","nongli":"三月廿二"},{"date":"2017-04-19","info":{"dawn":["1","多云","17","西南风","微风","18:25"],"day":["7","小雨","23","东北风","微风","05:29"],"night":["3","阵雨","18","东北风","微风","18:25"]},"week":"三","nongli":"三月廿三"},{"date":"2017-04-20","info":{"dawn":["3","阵雨","18","东北风","微风","18:25"],"day":["7","小雨","25","东北风","微风","05:28"],"night":["3","阵雨","16","东北风","微风","18:26"]},"week":"四","nongli":"三月廿四"},{"date":"2017-04-21","info":{"dawn":["3","阵雨","16","东北风","微风","18:26"],"day":["1","多云","22","东北风","微风","05:27"],"night":["1","多云","15","东北风","微风","18:27"]},"week":"五","nongli":"三月廿五"}],"f3h":{"temperature":[{"jg":"20170417140000","jb":"23"},{"jg":"20170417170000","jb":"21"},{"jg":"20170417200000","jb":"20"},{"jg":"20170417230000","jb":"19"},{"jg":"20170418020000","jb":"19"},{"jg":"20170418050000","jb":"18"},{"jg":"20170418080000","jb":"19"},{"jg":"20170418110000","jb":"29"},{"jg":"20170418140000","jb":"25"}],"precipitation":[{"jg":"20170417140000","jf":"14.2"},{"jg":"20170417170000","jf":"4.1"},{"jg":"20170417200000","jf":"1.9"},{"jg":"20170417230000","jf":"0"},{"jg":"20170418020000","jf":"0"},{"jg":"20170418050000","jf":"0"},{"jg":"20170418080000","jf":"0"},{"jg":"20170418110000","jf":"0"},{"jg":"20170418140000","jf":"0"}]},"pm25":{"key":"Wenzhou","show_desc":0,"pm25":{"curPm":"147","pm25":"111","pm10":"168","level":3,"quality":"轻度污染","des":"敏感人群应避免高强度户外锻炼，外出时做好防护措施"},"dateTime":"2017年04月17日15时","cityName":"温州"},"jingqu":"","jingqutq":"","date":"","isForeign":"0"}
          */
@@ -74,7 +75,8 @@ public class WeatherInfoBean {
             this.data = data;
         }
 
-        public static class DataBean {
+
+        public static class DataBean implements Serializable{
             /**
              * realtime : {"city_code":"101210701","city_name":"温州","date":"2017-04-17","time":"16:00:00","week":1,"moon":"三月廿一","dataUptime":1492416971,"weather":{"temperature":"23","humidity":"89","info":"阵雨","img":"3"},"wind":{"direct":"东北风","power":"1级","offset":null,"windspeed":null}}
              * life : {"date":"2017-4-17","info":{"chuanyi":["较舒适","建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。"],"ganmao":["较易发","相对今天出现了较大幅度降温，较易发生感冒，体质较弱的朋友请注意适当防护。"],"kongtiao":["较少开启","您将感到很舒适，一般不需要开启空调。"],"xiche":["不宜","不宜洗车，未来24小时内有雨，如果在此期间洗车，雨水和路上的泥水可能会再次弄脏您的爱车。"],"yundong":["较不宜","有降水，推荐您在室内进行健身休闲运动；若坚持户外运动，须注意携带雨具并注意避雨防滑。"],"ziwaixian":["最弱","属弱紫外线辐射天气，无需特别防护。若长期在户外，建议涂擦SPF在8-12之间的防晒护肤品。"]}}
@@ -184,7 +186,8 @@ public class WeatherInfoBean {
                 this.weather = weather;
             }
 
-            public static class RealtimeBean {
+
+            public static class RealtimeBean implements Serializable{
                 /**
                  * city_code : 101210701
                  * city_name : 温州
@@ -294,7 +297,7 @@ public class WeatherInfoBean {
                     this.wind = wind;
                 }
 
-                public static class WeatherBean {
+                public static class WeatherBean implements Serializable {
                     /**
                      * temperature : 23
                      * humidity : 89
@@ -350,7 +353,7 @@ public class WeatherInfoBean {
                     }
                 }
 
-                public static class WindBean {
+                public static class WindBean implements Serializable {
                     /**
                      * direct : 东北风
                      * power : 1级
@@ -407,7 +410,7 @@ public class WeatherInfoBean {
                 }
             }
 
-            public static class LifeBean {
+            public static class LifeBean implements Serializable{
                 /**
                  * date : 2017-4-17
                  * info : {"chuanyi":["较舒适","建议着薄外套、开衫牛仔衫裤等服装。年老体弱者应适当添加衣物，宜着夹克衫、薄毛衣等。"],"ganmao":["较易发","相对今天出现了较大幅度降温，较易发生感冒，体质较弱的朋友请注意适当防护。"],"kongtiao":["较少开启","您将感到很舒适，一般不需要开启空调。"],"xiche":["不宜","不宜洗车，未来24小时内有雨，如果在此期间洗车，雨水和路上的泥水可能会再次弄脏您的爱车。"],"yundong":["较不宜","有降水，推荐您在室内进行健身休闲运动；若坚持户外运动，须注意携带雨具并注意避雨防滑。"],"ziwaixian":["最弱","属弱紫外线辐射天气，无需特别防护。若长期在户外，建议涂擦SPF在8-12之间的防晒护肤品。"]}
@@ -441,7 +444,7 @@ public class WeatherInfoBean {
                     this.info = info;
                 }
 
-                public static class InfoBean {
+                public static class InfoBean implements Serializable{
                     private List<String> chuanyi;
                     private List<String> ganmao;
                     private List<String> kongtiao;
@@ -511,7 +514,7 @@ public class WeatherInfoBean {
                 }
             }
 
-            public static class F3hBean {
+            public static class F3hBean implements Serializable{
                 private List<TemperatureBean> temperature;
                 private List<PrecipitationBean> precipitation;
 
@@ -539,7 +542,7 @@ public class WeatherInfoBean {
                     this.precipitation = precipitation;
                 }
 
-                public static class TemperatureBean {
+                public static class TemperatureBean implements Serializable{
                     /**
                      * jg : 20170417140000
                      * jb : 23
@@ -573,7 +576,7 @@ public class WeatherInfoBean {
                     }
                 }
 
-                public static class PrecipitationBean {
+                public static class PrecipitationBean implements Serializable{
                     /**
                      * jg : 20170417140000
                      * jf : 14.2
@@ -608,7 +611,7 @@ public class WeatherInfoBean {
                 }
             }
 
-            public static class Pm25BeanX {
+            public static class Pm25BeanX implements Serializable{
                 /**
                  * key : Wenzhou
                  * show_desc : 0
@@ -674,7 +677,7 @@ public class WeatherInfoBean {
                     this.cityName = cityName;
                 }
 
-                public static class Pm25Bean {
+                public static class Pm25Bean implements Serializable{
                     /**
                      * curPm : 147
                      * pm25 : 111
@@ -753,7 +756,7 @@ public class WeatherInfoBean {
                 }
             }
 
-            public static class WeatherBeanX {
+            public static class WeatherBeanX implements Serializable {
                 /**
                  * date : 2017-04-17
                  * info : {"day":["3","阵雨","24","西南风","微风","05:31","出门记得带伞，行走驾驶做好防滑准备"],"night":["2","阴","18","西南风","微风","18:24","出门记得带伞，行走驾驶做好防滑准备"]}
@@ -808,7 +811,7 @@ public class WeatherInfoBean {
                     this.nongli = nongli;
                 }
 
-                public static class InfoBeanX {
+                public static class InfoBeanX implements Serializable{
                     private List<String> day;
                     private List<String> night;
 

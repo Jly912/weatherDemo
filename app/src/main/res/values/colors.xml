@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFAD5B</color>
-    <color name="colorPrimaryDark">#FFAD5B</color>
+    <color name="colorPrimary">#ff7474</color>
+    <color name="colorPrimaryDark">#ff7474</color>
     <color name="colorAccent">#FF4081</color>
     <color name="text_red">#ffff5b3b</color>
     <color name="line_bg">#ffbababa</color>
@@ -58,7 +58,7 @@
     <color name="float_transparent">#66000000</color>
     <color name="button_text_color">#FFFFFF</color>
 
-
+    <color name="colorTextDark2nd">#757575</color>
 
 
     <!-- 这里是文字的颜色和app的主题色 -->

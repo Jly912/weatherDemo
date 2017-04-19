@@ -2,7 +2,10 @@ package com.jal.app;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
 import com.jal.util.SharedUtil;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheEntity;
@@ -24,6 +27,9 @@ public class AppContext extends Application {
         super.onCreate();
         context = getApplicationContext();
         SharedUtil.init(this);
+        SpeechUtility utility = SpeechUtility.createUtility(context, SpeechConstant.APPID + "=589849cb ");//创建语音配置对象
+
+        Log.d("print","app==="+utility);
 
         OkGo.init(this);
 
@@ -43,4 +49,7 @@ public class AppContext extends Application {
     public static Context getContext() {
         return context;
     }
+
+
+
 }
