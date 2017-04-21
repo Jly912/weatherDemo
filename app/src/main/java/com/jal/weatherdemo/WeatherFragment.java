@@ -253,6 +253,11 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
     }
 
     @Override
+    public void showErrorCity() {
+        Toast.makeText(getContext(),getContext().getResources().getString(R.string.error_city),Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
     public void setPresenter(WeatherContract.Presenter presenter) {
         if (presenter != null) {
             this.presenter = presenter;

@@ -71,7 +71,12 @@ public class WeatherPresenter implements WeatherContract.Presenter {
             public void downSucc(Object object) {
                 if (object != null) {
                     data = (WeatherInfoBean) object;
-                    view.showResult(data);
+                    if(data.getResult()!=null){
+                        view.showResult(data);
+                    }else {
+                        view.showErrorCity();
+                    }
+
                 }
                 view.stopLoading();
             }

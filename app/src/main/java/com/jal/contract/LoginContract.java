@@ -2,6 +2,7 @@ package com.jal.contract;
 
 import com.jal.base.BasePresenter;
 import com.jal.base.BaseView;
+import com.jal.bean.LoginInfo;
 
 /**
  * Created by SEELE on 2017/4/17.
@@ -16,7 +17,7 @@ public interface LoginContract {
 
         void stopLoading();
 
-        void showResults(String msg);
+        void showResults(LoginInfo loginInfo);
 
     }
 

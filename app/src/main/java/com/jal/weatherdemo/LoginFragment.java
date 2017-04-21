@@ -1,9 +1,11 @@
 package com.jal.weatherdemo;
 
+import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,10 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jal.base.BaseFragment;
+import com.jal.bean.LoginInfo;
 import com.jal.contract.LoginContract;
 import com.jal.util.SharedUtil;
 import com.jal.widget.EditTextWithDel;
 import com.jal.widget.Tools;
+
+import java.util.HashSet;
+import java.util.Iterator;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -130,7 +136,7 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
                 }
 
                 showLoading();
-                presenter.startLogin(user,pwd);
+                presenter.startLogin(user, pwd);
                 break;
             case R.id.tv_forget:
                 presenter.forgetPwd();
@@ -159,8 +165,36 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
     }
 
     @Override
-    public void showResults(String msg) {
-        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
+    public void showResults(LoginInfo loginInfo) {
+
+        Log.e("print","show--"+loginInfo);
+        String user = etUser.getText().toString().trim();
+        String pwd = etPwd.getText().toString().trim();
+
+        HashSet<String> set=new HashSet<>();
+
+        for (int i = 0; i < loginInfo.getCity().size(); i++) {
+            String city = loginInfo.getCity().get(i);
+            set.add(city);
+        }
+
+        Iterator<String> iterator = set.iterator();
+        while (iterator.hasNext()){
+            String next = iterator.next();
+            Log.d("print","next"+next);
+        }
+
+
+        Log.e("print","show-user-"+user+"--"+pwd);
+
+        Toast.makeText(getContext(), getContext().getResources().getString(R.string.login_succ), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        SharedUtil.putString("username", loginInfo.getUsername());
+        SharedUtil.putString("pwd", pwd);
+        SharedUtil.putSet("city", set);
+
+//        intent.putExtra("user", loginInfo);
+        getContext().startActivity(intent);
     }
 
     @Override

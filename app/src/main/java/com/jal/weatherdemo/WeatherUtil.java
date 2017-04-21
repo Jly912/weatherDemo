@@ -48,7 +48,7 @@ public class WeatherUtil {
         List<String> day1 = tommorrow.getInfo().getDay();
         List<String> night = tommorrow.getInfo().getNight();
         String dir1 = day1.get(3);
-        String src = night.get(3);
+        String src = day1.get(4);
 
 
         String tTemp = day1.get(2);
@@ -100,7 +100,7 @@ public class WeatherUtil {
         message.append(dir1.equals("") ? "无持续风向" : dir1);
         message.append("，");
         message.append(src);
-        message.append("级。");
+//        message.append("级。");
 
         return message.toString();
     }

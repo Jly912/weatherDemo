@@ -3,6 +3,8 @@ package com.jal.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.Set;
+
 /**
  * Created by SEELE on 2017/4/14.
  */
@@ -52,4 +54,14 @@ public class SharedUtil {
         editor.clear();
         editor.commit();
     }
+
+    public static void putSet(String key,Set<String> set){
+        editor.putStringSet(key,set);
+        editor.commit();
+    }
+
+    public static Set<String> getSet(String key){
+        return sharedPreferences.getStringSet(key, null);
+    }
+
 }

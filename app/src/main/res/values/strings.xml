@@ -31,7 +31,7 @@
     <string name="collect">收藏的城市</string>
     <string name="mySetting">我的设置</string>
     <string name="about">关于我们</string>
-    <string name="star">星座运势</string>
+    <string name="star">今日星座运势</string>
 
     <string name="load_error">加载失败！</string>
     <string name="load_succ">加载成功！</string>
@@ -40,4 +40,51 @@
     <string name="yesterday">昨天</string>
     <string name="today">今天</string>
     <string name="tomorrow">明天</string>
+
+    <string name="error_city">没有查询到该城市天气！</string>
+    <string name="select_star">选择星座</string>
+
+    <array name="stars">
+        <item>白羊座：Aries(3.21~4.20)</item>
+        <item>金牛座：Taurus(4.21~5.21)</item>
+        <item>双子座：Gemini(5.22~6.21)</item>
+        <item>巨蟹座：Cancer(6.22~7.22)</item>
+        <item>狮子座：Leo(7.23~8.23)</item>
+        <item>处女座：Virgo(8.24~9.23)</item>
+        <item>天秤座：Libra(9.24~10.23)</item>
+        <item>天蝎座：Scorpion(10.24~11.22)</item>
+        <item>射手座：Sagittarius(11.23~12.21)</item>
+        <item>摩羯座：Capricorn(12.22~1.20)</item>
+        <item>水瓶座：Aquarius(1.21~2.19)</item>
+        <item>双鱼座：Pisces(2.20~3.20)</item>
+    </array>
+
+    <array name="star_name">
+        <item>白羊座</item>
+        <item>金牛座</item>
+        <item>双子座</item>
+        <item>巨蟹座</item>
+        <item>狮子座</item>
+        <item>处女座</item>
+        <item>天秤座</item>
+        <item>天蝎座</item>
+        <item>射手座</item>
+        <item>摩羯座</item>
+        <item>水瓶座</item>
+        <item>双鱼座</item>
+    </array>
+    <!--<string name="Aries">白羊座：Aries(3.21~4.20)</string>-->
+    <!--<string name="Taurus">金牛座：Taurus(4.21~5.21)</string>-->
+    <!--<string name="Gemini">双子座：Gemini(5.22~6.21)</string>-->
+    <!--<string name="Cancer">巨蟹座：Cancer(6.22~7.22)</string>-->
+    <!--<string name="Leo">狮子座：Leo(7.23~8.23)</string>-->
+    <!--<string name="Virgo">处女座：Virgo(8.24~9.23)</string>-->
+    <!--<string name="Libra">天秤座：Libra(9.24~10.23)</string>-->
+    <!--<string name="Scorpion">天蝎座：Scorpion(10.24~11.22)</string>-->
+    <!--<string name="Sagittarius">射手座：Sagittarius(11.23~12.21)</string>-->
+    <!--<string name="Capricorn">摩羯座：Capricorn(12.22~1.20)</string>-->
+    <!--<string name="Aquarius">水瓶座：Aquarius(1.21~2.19)</string>-->
+    <!--<string name="Pisces">双鱼座：Pisces(2.20~3.20)</string>-->
+
+
 </resources>

@@ -23,6 +23,7 @@ public interface WeatherContract {
 
         void showLine(WeatherInfoBean weatherInfoBean);
 
+        void showErrorCity();
     }
 
 

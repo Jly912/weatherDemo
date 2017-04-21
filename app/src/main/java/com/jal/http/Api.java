@@ -11,4 +11,6 @@ public interface Api {
 
     String STAR_INFO="http://api.avatardata.cn/Constellation/Query?key=b4908c82d1324ea5be5298101b2142f7&consName=%s&type=today";
 
+    String LOGIN="http://192.168.1.30:8080/WeatherServer/LoginAction?username=%s&password=%s&style=%s";
+
 }

@@ -52,6 +52,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public LocationClient mLocationClient = null;
     public BDLocationListener myListener = new MyLocationListener();
 
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -241,7 +242,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             sb.append("\nlocationdescribe : ");
             sb.append(location.getLocationDescribe());    //位置语义化信息
 
-            Log.d("print",sb.toString());
+            Log.d("print", sb.toString());
             String province = location.getProvince();
             Address address = location.getAddress();
             String district = address.district;
@@ -266,7 +267,10 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 }
             }
 
-
+            //定位成功后，停止定位
+            if (location.getAddress() != null) {
+                mLocationClient.stop();
+            }
         }
 
         @Override
@@ -274,11 +278,4 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
         }
     }
-
-//    LocationManager locManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-//
-//    if(!locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-//
-//        // 未打开位置开关，可能导致定位失败或定位不准，提示用户或做相应处理
-//    }
 }

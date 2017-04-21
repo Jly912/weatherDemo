@@ -30,15 +30,15 @@
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainActivity">
 
+
+        </activity>
+
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity android:name=".LoginActivity">
-
         </activity>
 
         <meta-data
@@ -58,6 +58,10 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="XNGKGxoIEFVFNzX1mhNX5fO0gXiWO8uU" />
+
+        <activity android:name=".StarSelectActivity" />
+
+        <activity android:name=".StarDetailActivity" />
     </application>
 
 </manifest>
