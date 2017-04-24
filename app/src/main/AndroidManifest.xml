@@ -62,6 +62,8 @@
         <activity android:name=".StarSelectActivity" />
 
         <activity android:name=".StarDetailActivity" />
+
+        <activity android:name=".MyCityActivity"/>
     </application>
 
 </manifest>

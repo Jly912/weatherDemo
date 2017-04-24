@@ -13,4 +13,9 @@ public interface Api {
 
     String LOGIN="http://192.168.1.30:8080/WeatherServer/LoginAction?username=%s&password=%s&style=%s";
 
+    String REGIST="http://192.168.1.30:8080/WeatherServer/LoginAction?username=%s&password=%s&style=regist";
+
+    String INSERT_CITY="http://192.168.1.30:8080/WeatherServer/LoginAction?username=%s&password=%s&style=insertCity&city=%s";
+
+    String REMOVE="http://192.168.1.30:8080/WeatherServer/LoginAction?username=%s&password=%s&style=remove&city=%s";
 }

@@ -68,7 +68,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public boolean isOpenStatus() {
-        return true;
+        return false;
     }
 
 }

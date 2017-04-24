@@ -10,6 +10,9 @@ import com.jal.interfaces.OnDownListener;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import okhttp3.Call;
 import okhttp3.Response;
 
@@ -24,6 +27,7 @@ public class Http {
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
+                        Log.d("print","ssssssss"+s);
                         if (s != null) {
                             WeatherInfoBean weatherInfoBean = new Gson().fromJson(s, WeatherInfoBean.class);
                             listener.downSucc(weatherInfoBean);
@@ -54,10 +58,13 @@ public class Http {
 
         String url=String.format(Api.LOGIN, name, pwd,"login");
         Log.d("print","params"+name+pwd+"url"+url);
+
         OkGo.get(url)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
+
+                        Log.d("print","00000000000"+s);
                         if (s != null) {
                             LoginInfo loginInfo = new Gson().fromJson(s, LoginInfo.class);
                             listener.downSucc(loginInfo);
@@ -67,6 +74,27 @@ public class Http {
                     }
                 });
 
+    }
+
+    public static void delCity(String name, String pwd, String city, final OnDownListener listener){
+        String url=String.format(Api.REMOVE,name,pwd,city);
+        OkGo.get(url)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(String s, Call call, Response response) {
+                        if(s!=null){
+                            try {
+                                JSONObject object=new JSONObject(s);
+                                int code = object.getInt("code");
+                                listener.downSucc(code);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }else {
+                            listener.downFilded();
+                        }
+                    }
+                });
     }
 
 }

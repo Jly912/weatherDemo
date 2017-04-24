@@ -67,15 +67,7 @@ public class LoginPresenter implements LoginContract.Presenter {
             }
         });
 
-//        if (user.equals("123") && pwd.equals("123456")) {
-////            view.showResults(context.getResources().getString(R.string.login_succ));
-//            context.startActivity(new Intent(context, MainActivity.class));
-//            view.stopLoading();
-//        }else {
-//            view.showError(context.getResources().getString(R.string.login_failed));
-//            view.stopLoading();
-//            return;
-//        }
+
     }
 
     @Override

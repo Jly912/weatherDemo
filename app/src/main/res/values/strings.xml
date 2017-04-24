@@ -43,6 +43,7 @@
 
     <string name="error_city">没有查询到该城市天气！</string>
     <string name="select_star">选择星座</string>
+    <string name="my_city">我的城市</string>
 
     <array name="stars">
         <item>白羊座：Aries(3.21~4.20)</item>

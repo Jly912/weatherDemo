@@ -2,7 +2,6 @@ package com.jal.app;
 
 import android.app.Application;
 import android.content.Context;
-import android.util.Log;
 
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
@@ -28,8 +27,6 @@ public class AppContext extends Application {
         context = getApplicationContext();
         SharedUtil.init(this);
         SpeechUtility utility = SpeechUtility.createUtility(context, SpeechConstant.APPID + "=589849cb ");//创建语音配置对象
-
-        Log.d("print","app==="+utility);
 
         OkGo.init(this);
 

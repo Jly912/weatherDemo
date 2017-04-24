@@ -152,4 +152,9 @@ public class LifeFragment extends BaseFragment implements LifeContract.View {
             this.presenter = presenter;
         }
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+    }
 }

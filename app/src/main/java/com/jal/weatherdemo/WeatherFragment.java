@@ -293,7 +293,6 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
                 String city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
                 boolean networkAvailable = NetworkUtil.isNetworkConnected(getContext());
                 if(networkAvailable){
-//                    (city);
                     presenter.loadPost(city);
                 }else {
                     Toast.makeText(getContext(),"请检查网络是否正常！",Toast.LENGTH_SHORT).show();
@@ -302,4 +301,10 @@ public class WeatherFragment extends BaseFragment implements WeatherContract.Vie
             }
         }
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+    }
+
 }

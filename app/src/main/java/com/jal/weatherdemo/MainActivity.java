@@ -1,6 +1,7 @@
 package com.jal.weatherdemo;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.util.Log;
@@ -17,6 +18,7 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
 import com.jal.app.AppContext;
 import com.jal.base.BaseActivity;
+import com.jal.bean.LoginInfo;
 import com.jal.presenter.LifePresenter;
 import com.jal.presenter.WeatherPresenter;
 import com.jal.util.SharedUtil;
@@ -52,6 +54,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public LocationClient mLocationClient = null;
     public BDLocationListener myListener = new MyLocationListener();
 
+    private LoginInfo info;
+
 
     @Override
     protected int getLayoutId() {
@@ -60,6 +64,10 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void init() {
+
+        Intent intent = getIntent();
+        info = (LoginInfo) intent.getSerializableExtra("user");
+
         mLocationClient = new LocationClient(AppContext.getContext());//声明LocationClient类
         mLocationClient.registerLocationListener(myListener);//注册监听函数
         getPermission();
@@ -68,9 +76,16 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         rg.setOnCheckedChangeListener(this);
 
         presenter = new LifePresenter(this, lifeFragment, "深圳");
+
         presenter1 = new WeatherPresenter(this, weatherFragment);
     }
 
+    public LoginInfo getInfo() {
+        if (info != null) {
+            return info;
+        }
+        return null;
+    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
