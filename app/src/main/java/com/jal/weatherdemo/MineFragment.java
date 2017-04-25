@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.jal.base.BaseFragment;
 import com.jal.bean.LoginInfo;
+import com.jal.http.Http;
+import com.jal.interfaces.OnDownListener;
 import com.jal.util.SharedUtil;
 
 import java.util.ArrayList;
@@ -52,14 +54,15 @@ public class MineFragment extends BaseFragment {
 
         String user = SharedUtil.getString("username");
         String pwd = SharedUtil.getString("pwd");
+        String size = SharedUtil.getString("city");
         Log.e("print", "username" + user);
         tvNick.setText(user);
         tvAccount.setText(pwd);
 
-        activity= (MainActivity) getActivity();
+        activity = (MainActivity) getActivity();
         LoginInfo info = activity.getInfo();
-        citys= (ArrayList<String>) info.getCity();
-        tvNum.setText(citys.size()+"");
+        citys = (ArrayList<String>) info.getCity();
+        tvNum.setText(size);
 
     }
 
@@ -68,8 +71,8 @@ public class MineFragment extends BaseFragment {
         switch (view.getId()) {
             case R.id.ll_city:
                 //城市管理
-                Intent intent=new Intent(getActivity(),MyCityActivity.class);
-                intent.putExtra("city",citys);
+                Intent intent = new Intent(getActivity(), MyCityActivity.class);
+                intent.putExtra("city", citys);
                 getContext().startActivity(intent);
                 break;
             case R.id.ll_setting:
@@ -78,6 +81,7 @@ public class MineFragment extends BaseFragment {
                 getContext().startActivity(new Intent(getContext(), StarSelectActivity.class));
                 break;
             case R.id.ll_about:
+                getContext().startActivity(new Intent(getContext(),AboutActivity.class));
                 break;
         }
     }
@@ -85,5 +89,26 @@ public class MineFragment extends BaseFragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
 //        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onResume() {
+        Log.d("print", "mine---------onresume");
+        Http.getLogin(SharedUtil.getString("username"), SharedUtil.getString("pwd"), new OnDownListener() {
+            @Override
+            public void downSucc(Object object) {
+                if (object != null) {
+                    LoginInfo loginInf = (LoginInfo) object;
+                    tvNum.setText(loginInf.getCity().size() + "");
+                }
+            }
+
+            @Override
+            public void downFilded() {
+
+            }
+        });
+
+        super.onResume();
     }
 }

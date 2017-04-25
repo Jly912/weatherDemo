@@ -112,9 +112,18 @@ public class WeatherChartView extends LinearLayout {
             String weather = data.get(i).getInfo().getDay().get(1);
             Log.d("print", "天气----" + weather);
             tvWeather.setText(weather);
+
+            if(weather.indexOf("到")!=-1){
+                Log.d("print","含有到"+weather);
+                String[] s = weather.split("到");
+                Log.d("print",weather+"-----"+s.length+"==========");
+                weather = s[s.length - 1];
+            }else {
+                Log.d("print","不含到"+weather);
+            }
+
             WeatherBean weatherBean = weatherBeanMap.get(weather);
             Log.d("print", "------" + weatherBean);
-
 
             Glide.with(getContext())
                     .load(weatherBean.getIcon())

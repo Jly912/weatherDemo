@@ -49,6 +49,10 @@ public class CityRyAdapter extends RecyclerView.Adapter<CityRyAdapter.CityViewHo
         return city;
     }
 
+    public void addCity(String city){
+        this.city.add(city);
+        this.notifyDataSetChanged();
+    }
 
     @Override
     public CityViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

@@ -27,7 +27,7 @@ public class Http {
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
-                        Log.d("print","ssssssss"+s);
+                        Log.d("print", "ssssssss" + s);
                         if (s != null) {
                             WeatherInfoBean weatherInfoBean = new Gson().fromJson(s, WeatherInfoBean.class);
                             listener.downSucc(weatherInfoBean);
@@ -56,15 +56,15 @@ public class Http {
 
     public static void getLogin(String name, String pwd, final OnDownListener listener) {
 
-        String url=String.format(Api.LOGIN, name, pwd,"login");
-        Log.d("print","params"+name+pwd+"url"+url);
+        String url = String.format(Api.LOGIN, name, pwd, "login");
+        Log.d("print", "params" + name + pwd + "url" + url);
 
         OkGo.get(url)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
 
-                        Log.d("print","00000000000"+s);
+                        Log.d("print", "00000000000" + s);
                         if (s != null) {
                             LoginInfo loginInfo = new Gson().fromJson(s, LoginInfo.class);
                             listener.downSucc(loginInfo);
@@ -76,25 +76,94 @@ public class Http {
 
     }
 
-    public static void delCity(String name, String pwd, String city, final OnDownListener listener){
-        String url=String.format(Api.REMOVE,name,pwd,city);
+    public static void delCity(String name, String pwd, String city, final OnDownListener listener) {
+        String url = String.format(Api.REMOVE, name, pwd, city);
+
         OkGo.get(url)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
-                        if(s!=null){
+
+                        Log.d("print", "delUrl+ssss========" + s);
+                        if (s != null) {
                             try {
-                                JSONObject object=new JSONObject(s);
+                                JSONObject object = new JSONObject(s);
                                 int code = object.getInt("code");
+                                Log.d("print", "delUrl+code========" + code);
                                 listener.downSucc(code);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
-                        }else {
+                        } else {
                             listener.downFilded();
                         }
                     }
                 });
     }
 
+    public static void addCity(String name, String pwd, String city, final OnDownListener listener) {
+        String url = String.format(Api.INSERT_CITY, name, pwd, city);
+        Log.d("print", "addUrl+========" + url);
+        OkGo.get(url)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(String s, Call call, Response response) {
+                        Log.d("print", "addUrl+=====sss===" + s);
+                        if (s != null) {
+                            try {
+                                JSONObject object = new JSONObject(s);
+                                int code = object.getInt("code");
+                                Log.d("print", "addUrl+=====code===" + s);
+                                listener.downSucc(code);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                listener.downFilded();
+                            }
+
+                        } else {
+                            listener.downFilded();
+                        }
+                    }
+                });
+
+    }
+
+    public static void registerUser(String name, String pwd, final OnDownListener listener) {
+        String url = String.format(Api.REGIST, name, pwd);
+
+        OkGo.get(url)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(String s, Call call, Response response) {
+                        Log.d("print","----shujuku-----code"+s);
+                        if (s != null) {
+                            try {
+                                JSONObject object = new JSONObject(s);
+                                int code = object.getInt("code");
+                                switch (code) {
+                                    case 0:
+                                        //注册成功
+                                        listener.downSucc(code);
+                                        break;
+                                    case 2:
+                                        Log.d("print",code+"----shujuku-----code");
+                                        //注册失败 数据库失败
+                                        listener.downFilded();
+                                        break;
+                                    case 4:
+                                        //用户存在
+                                        Log.d("print",code+"----shujuku-----code");
+                                        listener.downSucc(code);
+                                        break;
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                listener.downFilded();
+                            }
+                        } else {
+                            listener.downFilded();
+                        }
+                    }
+                });
+    }
 }

@@ -293,4 +293,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 }

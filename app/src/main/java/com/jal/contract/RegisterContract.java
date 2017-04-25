@@ -17,10 +17,12 @@ public interface RegisterContract {
         void stopLoading();
 
         void showResults(String msg);
+
+        void clear();
     }
 
     interface Presenter extends BasePresenter {
-        void startRegist();
+        void startRegist(String username,String pwd);
 
     }
 

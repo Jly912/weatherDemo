@@ -8,6 +8,7 @@ import com.jal.bean.LoginInfo;
 import com.jal.contract.LoginContract;
 import com.jal.http.Http;
 import com.jal.interfaces.OnDownListener;
+import com.jal.util.SharedUtil;
 
 /**
  * Created by SEELE on 2017/4/17.
@@ -29,7 +30,7 @@ public class LoginPresenter implements LoginContract.Presenter {
 
 
     @Override
-    public void startLogin(String user, String pwd) {
+    public void startLogin(String user, final String pwd) {
 
         Log.d("print","url"+"user"+user+"-----"+pwd);
         Http.getLogin(user, pwd, new OnDownListener() {
@@ -45,8 +46,13 @@ public class LoginPresenter implements LoginContract.Presenter {
                         case 1:
                             //登录成功
                             view.showResults(info);
+                            SharedUtil.putString("username", info.getUsername());
+                            SharedUtil.putString("pwd", pwd);
+                            SharedUtil.putString("cityNum",info.getCity().size()+"");
                             break;
                         case -1:
+                            view.showError("密码错误！");
+                            view.stopLoading();
                             break;
                         case 2:
                             break;

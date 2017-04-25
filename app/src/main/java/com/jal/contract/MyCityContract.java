@@ -19,12 +19,16 @@ public interface MyCityContract {
         void showResult(List<String> city);
 
         void showError();
+
+        void showToast(String msg);
     }
 
     interface  Presenter extends BasePresenter{
         void loadatas();
 
         void refresh();
+
+        void addCity(String city);
     }
 
 }

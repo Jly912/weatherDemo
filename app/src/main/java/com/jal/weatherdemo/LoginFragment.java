@@ -167,14 +167,15 @@ public class LoginFragment extends BaseFragment implements LoginContract.View {
         Log.e("print","show--"+loginInfo);
         String user = etUser.getText().toString().trim();
         String pwd = etPwd.getText().toString().trim();
-        Log.e("print","show-user-"+user+"--"+pwd);
+        int size = loginInfo.getCity().size();
+        Log.e("print","show-user-"+user+"--"+pwd+"----"+size);
 
         Toast.makeText(getContext(), getContext().getResources().getString(R.string.login_succ), Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(getContext(), MainActivity.class);
-        SharedUtil.putString("username", loginInfo.getUsername());
-        SharedUtil.putString("pwd", pwd);
         intent.putExtra("user", loginInfo);
         getContext().startActivity(intent);
+        LoginActivity activity= (LoginActivity) getContext();
+        activity.finish();
     }
 
     @Override

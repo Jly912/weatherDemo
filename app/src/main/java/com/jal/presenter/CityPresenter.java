@@ -54,4 +54,36 @@ public class CityPresenter implements MyCityContract.Presenter {
     public void refresh() {
         loadatas();
     }
+
+    @Override
+    public void addCity(final String city) {
+        String username = SharedUtil.getString("username");
+        String pwd = SharedUtil.getString("pwd");
+        Http.addCity(username, pwd, city, new OnDownListener() {
+            @Override
+            public void downSucc(Object object) {
+                int code= (int) object;
+                switch (code){
+                    case 0:
+                        view.showToast("收藏成功！");
+                        break;
+                    case 1:
+                        view.showToast("数据库操作失败！");
+                        break;
+                    case -1:
+                        view.showToast("城市已收藏！");
+                        break;
+                    default:
+                        view.showToast("收藏失败！");
+                        break;
+                }
+            }
+
+            @Override
+            public void downFilded() {
+                view.showToast("收藏失败！");
+            }
+        });
+
+    }
 }

@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import com.jal.adapter.LoginPagerAdapter;
 import com.jal.base.BaseActivity;
 import com.jal.presenter.LoginPresenter;
+import com.jal.presenter.RegisterPresenter;
 
 import butterknife.Bind;
 
@@ -21,6 +22,7 @@ public class LoginActivity extends BaseActivity {
     ViewPager loginVp;
 
     private LoginPresenter presenter;
+    private RegisterPresenter registerPresenter;
     private LoginFragment loginFragment = LoginFragment.getInstance();
     private RegisterFragment registerFragment = RegisterFragment.getInstance();
 
@@ -33,6 +35,9 @@ public class LoginActivity extends BaseActivity {
     protected void init() {
         setupViewPager();
         presenter = new LoginPresenter(this, loginFragment);
+
+        registerPresenter=new RegisterPresenter(this,registerFragment);
+
     }
 
     private void setupViewPager() {
@@ -71,4 +76,7 @@ public class LoginActivity extends BaseActivity {
         return false;
     }
 
+    public void setLogin(){
+        loginVp.setCurrentItem(0);
+    }
 }

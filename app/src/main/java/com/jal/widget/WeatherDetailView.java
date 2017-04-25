@@ -2,6 +2,7 @@ package com.jal.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -87,6 +88,15 @@ public class WeatherDetailView extends LinearLayout {
             tvInfo.setText(String.format("%s，%s ,%s ", weather,windDerct.equals("")?"无持续风向":windDerct,windPower));
             tvSunrise.setText("日出："+sunriseTime);
             tvDawn.setText("日落："+dawnTime);
+
+            if(weather.indexOf("到")!=-1){
+                Log.d("print","含有到"+weather);
+                String[] s = weather.split("到");
+                Log.d("print",weather+"-----"+s.length+"==========");
+                weather = s[s.length - 1];
+            }else {
+                Log.d("print","不含到"+weather);
+            }
 
             WeatherBean weatherBean = weatherBeanMap.get(weather);
             Glide.with(getContext())
